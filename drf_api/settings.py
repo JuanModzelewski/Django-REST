@@ -63,7 +63,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', 'django-restframework-api-59d7ae932d35.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'django-rest-memories.herokuapp.com']
 
 
 # Application definition
@@ -81,12 +81,12 @@ INSTALLED_APPS = [
     'django_filters',
     'rest_framework.authtoken',
     'dj_rest_auth',
+    'dj_rest_auth.registration',
     'corsheaders',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'dj_rest_auth.registration',
     'profiles',
     'posts',
     'comments',
