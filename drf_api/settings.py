@@ -107,7 +107,6 @@ MIDDLEWARE = [
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGINS = [
         os.environ.get('CLIENT_ORIGIN'),
-        "http://localhost:5000",
      ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
