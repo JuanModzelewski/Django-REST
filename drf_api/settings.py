@@ -52,12 +52,12 @@ if 'DEV' not in os.environ:
         'rest_framework.renderers.JSONRenderer',
     ]
 
-REST_AUTH = {
-    'USE_JWT': True,
-    'JWT_AUTH_COOKIE': 'my-app-auth',
-    'JWT_AUTH_REFRESH_COOKIE': 'my-refresh-token',
-    'JWT_AUTH_HTTPONLY': False
-}
+
+USE_JWT = True,
+JWT_AUTH_COOKIE = 'my-app-auth',
+JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token',
+JWT_AUTH_HTTPONLY = False
+
 
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
