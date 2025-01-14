@@ -46,11 +46,10 @@ REST_USE_JWT = True
 JWT_AUTH_SECURE = True
 JWT_AUTH_COOKIE = 'my-app-auth'
 JWT_AUTH_REFRESH_COOKIE = 'my-refresh-token'
-JWT_AUTH_SAMESITE = 'None'
-
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
+JWT_AUTH_SAMESITE = 'None'
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -59,9 +58,9 @@ REST_AUTH_SERIALIZERS = {
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.environ.get('ALLOWED_HOST')]
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', os.environ.get('ALLOWED_HOST'), 'localhost:5173' ]
 
 
 # Application definition
@@ -107,11 +106,13 @@ MIDDLEWARE = [
 
 if 'CLIENT_ORIGIN_DEV' in os.environ:
     CORS_ALLOWED_ORIGINS = [
-        os.environ.get('CLIENT_ORIGIN')
+        os.environ.get('CLIENT_ORIGIN'),
+        "http://localhost:5000",
      ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
          r"^https:\/\/.*\.codeinstitute-ide\.net$",
+         r"^https:\/\/localhost:5000$",
     ]
 
 CORS_ALLOW_CREDENTIALS = True
