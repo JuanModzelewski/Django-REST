@@ -125,7 +125,7 @@ if 'CLIENT_ORIGIN_DEV' in os.environ:
      ]
 else:
     CORS_ALLOWED_ORIGIN_REGEXES = [
-         r"^https:\/\/.*\.codeinstitute-ide\.net$",
+         re.compile("^https:\/\/.*\.codeinstitute-ide\.net$"),
     ]
 
 CORS_ALLOW_CREDENTIALS = True
