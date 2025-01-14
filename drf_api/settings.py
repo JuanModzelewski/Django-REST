@@ -13,6 +13,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import dj_database_url
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api	
 import re
 
 if os.path.exists('env.py'):
@@ -21,6 +24,13 @@ if os.path.exists('env.py'):
 CLOUDINARY_STORAGE = {
     'CLOUDINARY_URL': os.environ.get('CLOUDINARY_URL')
 }
+
+cloudinary.config(
+    cloud_name = "drb4dj5qc",
+    api_key = "751354369646715",
+    api_secret = "FoPDULm9QU-mSrIhOTbKY907l4Q",    
+)
+
 MEDIA_URL = '/media/'
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
